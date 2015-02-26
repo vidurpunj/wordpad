@@ -5,6 +5,14 @@ Setup Ruby On Rails onUbuntu 13.10
 1. sudo apt-get update
 2. sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev   libxslt1-dev libcurl4-openssl-dev python-software-properties
 
+3. wget http://ftp.ruby-lang.org/pub/ruby/2.1/ruby-2.1.5.tar.gz
+4. tar -xzvf ruby-2.1.5.tar.gz
+5. cd ruby-2.1.5/
+6. ./configure
+7. make
+8. sudo make install
+9. ruby -v
+
 Installing Rails
 
 1. gem install rails
