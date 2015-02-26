@@ -1,0 +1,40 @@
+Setup Ruby On Rails onUbuntu 13.10
+
+###Installing Ruby version 21.5 ruby 2.1.5p273
+
+1. sudo apt-get update
+2. sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev   libxslt1-dev libcurl4-openssl-dev python-software-properties
+
+Installing Rails
+
+1. gem install rails
+2. rails -v
+   # Rails 4.1.8
+
+Setting Up MySQL
+
+1. sudo apt-get install mysql-server mysql-client libmysqlclient-dev
+
+Final Steps
+
+#### MySQL
+rails new wordpad -d mysql
+
+###Download 
+1. mkdir work_space
+2. cd work_space
+3. git clone  https://github.com/vidurpunj/wordpad.git
+
+# Move into the application directory
+cd wordpad
+
+# Create the database
+rake db:create
+
+#MIgrate the dabavase
+rake db:migrate
+rails server
+
+Now visit http://localhost:3000 to view your new website!
+
+
