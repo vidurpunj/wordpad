@@ -5,12 +5,17 @@
           <% @blog.errors.full_messages.each do |msg| %>
               <%= msg %><br/>
           <% end %>
-        </div>
-        <%#= f.error_messages %>
-        <%= f.input :content %>
-        <%= f.input :status, :collection => ['publish', 'draft', 'trash'], :include_blank => false %>
-        <%= f.input :title %>
-        <%= f.association :language, :include_blank => false %>
-        <%= f.button :submit %>
     <% end %>
+    </div>
+    <%#= f.error_messages %>
+    <%= f.input :content, input_html: {class: 'special'} %>
+    <%= f.input :status, :collection => ['publish', 'draft', 'trash'], :include_blank => false %>
+    <%= f.input :title %>
+    <%= f.association :language, :include_blank => false %>
+    <%= f.button :submit %>
 <% end %>
+<script type="text/javascript">
+    $(document).ready(function () {
+        new nicEditor({fullPanel: true}).panelInstance('blog_content');
+    });
+</script>

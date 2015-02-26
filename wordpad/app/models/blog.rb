@@ -1,6 +1,6 @@
 class Blog < ActiveRecord::Base
 
-  validates_presence_of :title, :language_id, :user_id, :content
+  validates_presence_of :title, :user_id, :content
   validates :title, length: {minimum: 2}
   validates :content, length: {maximum: 500}
   validates_uniqueness_of :title

@@ -15,3 +15,8 @@
     <%= f.association :language, :include_blank => false %>
     <%= f.button :submit %>
 <% end %>
+<script type="text/javascript">
+    $(document).ready(function () {
+        new nicEditor({fullPanel: true}).panelInstance('blog_content');
+    });
+</script>
