@@ -9,7 +9,7 @@
     <% end %>
     </div>
     <%#= f.error_messages %>
-    <%= f.text_area :content %>
+    <%= f.input :content, input_html: {class: 'special'} %>
     <%= f.input :status, :collection => ['publish', 'draft', 'trash'], :include_blank => false %>
     <%= f.input :title %>
     <%= f.association :language, :include_blank => false %>

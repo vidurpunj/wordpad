@@ -13,8 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require jquery-1.11.2.min
 //= require nicEdit
+//= require genral
 //= require_tree .
 
 

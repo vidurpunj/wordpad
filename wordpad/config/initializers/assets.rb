@@ -10,7 +10,6 @@ Rails.application.config.assets.version = '1.0'
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
 
-# Rails.application.config.assets.precompile += %w( genral.js )
-Rails.application.config.assets.precompile += %w( jquery-1.11.2.min.js )
 Rails.application.config.assets.precompile += %w( nicEdit.js )
+Rails.application.config.assets.precompile += %w( genral.js )
 

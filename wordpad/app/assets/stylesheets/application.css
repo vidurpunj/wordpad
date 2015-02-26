@@ -55,3 +55,8 @@
     display: block;
     font-style: italic;
 }
+
+.special {
+    height: 100px;
+    width: 600px;
+}
