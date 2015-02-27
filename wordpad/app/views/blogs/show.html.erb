@@ -1,29 +1,50 @@
-<p id="notice"><%= notice %></p>
+<div>
+  <table>
+    <thead>
 
-<p>
-  <strong>Content:</strong>
-  <%= @blog.content %>
-</p>
+    <th>
+      <strong>Language:</strong>
+    </th>
+    <th>
+      <strong>Status:</strong>
+    </th>
+    <th>
 
-<p>
-  <strong>Language:</strong>
-  <%= Language.find(@blog.language_id).name %>
-</p>
+    </th>
+    </thead>
+    <tr>
+      <td>
+        <%= Language.find(@blog.language_id).name %>
+      </td>
+      <td>
+        <%= @blog.status %>
+      </td>
+    </tr>
+  </table>
+</div>
+<div>
+  <p>
+    <strong>Title:</strong>
+    <%= @blog.title %>
+  </p>
 
-<p>
-  <strong>User:</strong>
-  <%= User.find(@blog.user_id).name %>
-</p>
+  <p>
+    <strong>Content:</strong>
+  </p>
+ <textarea class="special" id="blog_content">
+        <%= @blog.content %>
+</textarea>
+</div>
+<div>
+  <%= link_to 'Edit', edit_blog_path(@blog) %> |
+  <%= link_to 'Back', blogs_path %>
+</div>
 
-<p>
-  <strong>Status:</strong>
-  <%= @blog.status %>
-</p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
-
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+<script type="text/javascript">
+    $(document).ready(function () {
+        new nicEditor({fullPanel: true}).panelInstance('blog_content');
+        $('div[contenteditable="true"]').attr('contenteditable', false);
+        $(".nicEdit-panelContain").hide();
+    });
+</script>

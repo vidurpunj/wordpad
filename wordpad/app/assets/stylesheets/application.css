@@ -60,3 +60,16 @@
     height: 100px;
     width: 600px;
 }
+
+.special_one {
+    height: 100px;
+    width: 600px;
+    pointer-events: none;
+}
+
+.content {
+    height: 80px;
+    width: 400px;
+    overflow: hidden;
+
+}

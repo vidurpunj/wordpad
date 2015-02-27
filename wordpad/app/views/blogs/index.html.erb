@@ -1,35 +1,56 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Blogs</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th>Language</th>
-      <th>User</th>
-      <th>Status</th>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @blogs.each do |blog| %>
-      <tr>
-        <td><%= blog.content %></td>
-        <td><%= Language.find(blog.language_id).name %></td>
-        <td><%= User.find(blog.user_id).name %></td>
-        <td><%= blog.status %></td>
-        <td><%= blog.title %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<% @blogs.each do |blog| %>
+    <div>
+      <table>
+        <thead>
+        <th>User</th>
+        <th>Title</th>
+        <th>Language</th>
+        <th>Status</th>
+        <th colspan="3"></th>
+        </tr>
+        </thead>
+        <tr>
+          <td><%= User.find(blog.user_id).name %></td>
+          <td><%= blog.title %></td>
+          <td><%= Language.find(blog.language_id).name %></td>
+          <td><%= blog.status %></td>
+          <% if current_user.admin? %>
+              <td><%= blog.status %></td>
+              <td><%= link_to 'Show', blog %></td>
+              <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
+              <td><%= link_to 'Destroy', blog, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          <% end %>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <div>
+        <p>
+          <strong>Content:</strong>
+        </p>
+      </div>
+      <div class="content">
+        <td>
+        <textarea class="special" id="<%= blog.id %>">
+          <%= blog.content %>
+        </textarea>
+        </td>
+      </div>
+    </div>
+<% end %>
 <br>
-
 <%= link_to 'New Blog', new_blog_path %>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        <% @blogs.each do |blog| %>
+        new nicEditor({fullPanel: true}).panelInstance('<%= blog.id%>');
+        <% end%>
+        $(".nicEdit-panelContain").hide();
+    });
+
+</script>

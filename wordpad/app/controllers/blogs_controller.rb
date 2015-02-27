@@ -4,12 +4,17 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
+    #Blog of particular id if admin list all blog
+    @blogs=Blog.where('user_id = ?', current_user.id)
+    if current_user.admin?
+      @blogs=Blog.order(:created_at)
+    end
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+
   end
 
   # GET /blogs/new

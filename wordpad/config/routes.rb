@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_for :users
   get '/users' => 'home#index'
   get '/blog_posts' => 'dashboard#blog_post', :as => 'blog_posts'
-  get '/dashboard/myblogs' => 'dashboard#myblogs'
+  get '/dashboard/myblogs' => 'blogs#index'
   post '/dashboard/post' => 'dashboard#post', :as => 'post'
   get '/dashboard/index' => 'dashboard#index'
   get '/dashboard/show_users' => 'dashboard#show_users', :as => 'user_list'
