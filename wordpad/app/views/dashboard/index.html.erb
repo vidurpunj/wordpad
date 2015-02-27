@@ -60,6 +60,7 @@
         <% @blogs.each do |blog| %>
         new nicEditor({fullPanel: true}).panelInstance('<%= blog.id%>');
         <% end%>
+        $('div[contenteditable="true"]').attr('contenteditable', false);
         $(".nicEdit-panelContain").hide();
     });
 

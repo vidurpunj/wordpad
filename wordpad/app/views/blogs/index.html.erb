@@ -51,6 +51,7 @@
         new nicEditor({fullPanel: true}).panelInstance('<%= blog.id%>');
         <% end%>
         $(".nicEdit-panelContain").hide();
+        $('div[contenteditable="true"]').attr('contenteditable', false);
     });
 
 </script>
