@@ -1,33 +1,23 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%#= devise_error_messages! %>
 
     <div class="field">
-      <%= f.label :name %><br/>
-      <%= f.text_field :name %>
+      <%= f.input :name, required: true, input_html: {maxlength: 20} %>
     </div>
 
     <div class="field">
-      <%= f.label :email %><br/>
-      <%= f.email_field :email, autofocus: true %>
+      <%= f.input :email, placeholder: 'user@domain.com', required: true, input_html: {class: 'required'} %>
     </div>
 
     <div class="field">
-      <%= f.label :password %>
-      <% if @validatable %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br/>
-      <%= f.password_field :password, autocomplete: "off" %>
-    </div>
-
-    <div class="field">
-      <%= f.label :password_confirmation %><br/>
-      <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      <%= f.input :password, hint: false, hint: 'password length 8 to 20 characters.', input_html: {maxlength: 20}, error_html: {id: 'password_error'} %>
+      <%= f.input :password_confirmation %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Sign up" %>
+      <%= f.button :submit %>
     </div>
 <% end %>
 

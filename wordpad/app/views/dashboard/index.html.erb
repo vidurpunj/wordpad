@@ -26,12 +26,12 @@
           </tr>
           </thead>
           <tr>
-            <td><%= User.find(blog.user_id).name %></td>
+            <td><%= link_to User.find(blog.user_id).name, blogs_path(id: blog.user_id) %></td>
             <td><%= blog.title %></td>
-            <td><%= Language.find(blog.language_id).name %></td>
+            <td><%= link_to  Language.find(blog.language_id).name, dashboard_language_path(id: blog.language_id) %></td>
             <td><%= blog.status %></td>
+            <td><%= link_to 'Show', blog %></td>
             <% if current_user.admin? %>
-                <td><%= link_to 'Show', blog %></td>
                 <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
                 <td><%= link_to 'Destroy', blog, method: :delete, data: {confirm: 'Are you sure?'} %></td>
             <% end %>

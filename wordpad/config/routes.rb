@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/dashboard/index' => 'dashboard#index'
   get '/dashboard/show_users' => 'dashboard#show_users', :as => 'user_list'
   get '/dashboard/blog_create' => 'dashboard#blog_create'
+  get '/dashboard/language' => 'dashboard#language', :as => 'dashboard_language'
   get '/:dashboard/:index' => 'dashboard#index'
   get '/:dashboard:' => 'dashboard#index'
   get '/:users/:index' => 'dashboard#index'
